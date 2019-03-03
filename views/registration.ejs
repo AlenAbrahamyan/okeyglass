@@ -33,15 +33,56 @@
     </style>
 </head>
 <body >
+<script>
+    //console.log("<%=ctext%>");
+    ank = "<%=ctext%>";
+</script>
+
+<% if (url_code == 'ok') { %>
+    <div id="sid">
+    <center>
+        <img src="registration_files/tochni.png" style="margin-top:10%;">
+        <h1>На вашу электронную почту отправлено письмо
+                <br>c подтверждением регистрации</h1>
+                <p>Если в течение 10 минут письмо не пришло, пожалуйста, проверьте папку "Cпам"</p>
+    </center>
+    </div>
+    <style>
+        #sid{
+            width: 100%;
+            height: 100%;
+            background-image: url("registration_files/sbg.png");
+            position: absolute;
+		    z-index: 999999999;
+        }
+    </style>
+<% } %>
+<% if (url_code !='ok') { %>
 <div class="workArea container">
     <div class="workArea__container">
-         <form method="POST" action="/registration" accept-charset="UTF-8" class="mainForm" ><input name="_token" type="hidden" value="UveWPOA5qtQdaNgQybsmgqtlJgg1qT47f3FEgyxf">
+         <form name="uploader" id="form1"  action="/registration?sea=ok"  method="post"  enctype="multipart/form-data" class="mainForm" ><input name="_token" type="hidden" value="UveWPOA5qtQdaNgQybsmgqtlJgg1qT47f3FEgyxf">
+         
             <fieldset>
                 <legend>
                     Для участия в розыгрыше приза<br>
                     необходимо зарегистрироваться
                 </legend>
             </fieldset>
+            <div class="alert alert-danger" id="ankap" style="display:none;">
+
+                    <p id="a1" style="display:none;">Поле "Имя" обязательное для заполнения.</p>
+                    <p id="a2" style="display:none;">Поле "Фамилия" обязательное для заполнения.</p>
+                    <p id="a3" style="display:none;">Поле "Отчество" обязательное для заполнения.</p>
+                    <p id="a4" style="display:none;">Поле "Email" обязательное для заполнения.</p>
+                    <p id="a5" style="display:none;">Поле "Телефон" обязательное для заполнения.</p>
+                    <p id="a6" style="display:none;">Поле "Город" обязательное для заполнения.</p>
+                    <p id="a7" style="display:none;">Поле "Где были приобретены очки водителя cafa france (адрес или номер и имя азс)" обязательное для заполнения.</p>
+                    <p id="a8" style="display:none;">Поле "Артикул очков" обязательное для заполнения.</p>
+                    <p id="a9" style="display:none;">Поле "Номер чека" обязательное для заполнения.</p>
+                    <p id="a10" style="display:none;">Поле "Фото чека" обязательное для заполнения.</p>
+                    <p id="a11" style="display:none;">Поле "Код с картинки" обязательное для заполнения.</p>
+
+            </div>
                         <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
@@ -127,7 +168,7 @@
                         <div class="form-control__container">
                             <div class="input-group">
                                 <input type="text" class="form-control">
-                                <input type="file" name="photo">
+                                <input type="file" name="file" id='file'>
                                 <span class="input-group-addon">
                                     <div class="icon icon_file"></div>
                                 </span>
@@ -140,10 +181,10 @@
                         <label>введите код с картинки</label>
                         <div class="form-control__container">
                             <div class="input-group">
-									<span class="input-group-addon">
-										<img src="./registration_files/bonecms_captcha" alt="https://github.com/bonecms/laravel-captcha" style="cursor:pointer;width:100px;height:41px;" title="Обновить" onclick="this.setAttribute(&#39;src&#39;,&#39;http://lenta.cf-promo.ru/bonecms_captcha?_=&#39;+Math.random());var captcha=document.getElementById(&#39;captcha&#39;);if(captcha){captcha.focus()}">
-									</span>
-                                <input type="text" name="captcha" class="form-control">
+									<div class="input-group-addon">
+										<img src="/captchas"  style="cursor:pointer;width:100px;height:41px;" >
+                                    </div>
+                                <input type="text" id="myText" name="captcha" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -155,16 +196,112 @@
 						<div class="input-group" style="margin-top:10px;">
 							<label><input style="height:12px; margin-right:10px;" name="term" type="checkbox"> <a data-toggle="modal" data-target="#myModal" style="color:#fff" href="http://lenta.cf-promo.ru/">Согласен с условиями</a></label>				
 						</div>
-					</div>
-                    <div class="col-md-4">
-                        <button type="submit" id="send" class="btn btn-block">зарегистрироваться</button>
                     </div>
+                 <!-- gortc    -->
+                    <script>
+                        function submita() {
+                          var x = document.getElementById("myText").value;
+                          var p = 0;
+                          
+                          if(document.getElementById("lastName").value==""){
+                            document.getElementById("ankap").style.display = "block";
+                            document.getElementById("a2").style.display = "block";
+                            p++;
+                          }
+
+                          if(document.getElementById("firstName").value==""){
+                            document.getElementById("ankap").style.display = "block";
+                            document.getElementById("a1").style.display = "block";
+                            p++;
+                          }
+
+                          if(document.getElementById("middleName").value==""){
+                            document.getElementById("ankap").style.display = "block";
+                            document.getElementById("a3").style.display = "block";
+                            p++;
+                          }
+
+                          if(document.getElementById("email").value==""){
+                            document.getElementById("ankap").style.display = "block";
+                            document.getElementById("a4").style.display = "block";
+                            p++;
+                          }
+
+                          if(document.getElementById("phone").value==""){
+                            document.getElementById("ankap").style.display = "block";
+                            document.getElementById("a5").style.display = "block";
+                            p++;
+                          }
+
+                          if(document.getElementById("city").value==""){
+                            document.getElementById("ankap").style.display = "block";
+                            document.getElementById("a6").style.display = "block";
+                            p++;
+                          }
+
+                          if(document.getElementById("where").value==""){
+                            document.getElementById("ankap").style.display = "block";
+                            document.getElementById("a7").style.display = "block";
+                            p++;
+                          }
+
+                          if(document.getElementById("article").value==""){
+                            document.getElementById("ankap").style.display = "block";
+                            document.getElementById("a8").style.display = "block";
+                            p++;
+                          }
+
+                          if(document.getElementById("numberCheck").value==""){
+                            document.getElementById("ankap").style.display = "block";
+                            document.getElementById("a9").style.display = "block";
+                            p++;
+                          }
+                          
+                          if(document.getElementById("file").value==""){
+                            document.getElementById("ankap").style.display = "block";
+                            document.getElementById("a10").style.display = "block";
+                            p++;
+                          }
+
+                          if(x!="<%=ctext%>"){
+                            document.getElementById("ankap").style.display = "block";
+                            document.getElementById("a11").style.display = "block";
+                            p++;
+                          }
+
+                          if(p==0){
+                            document.getElementById("form1").submit();
+                          }
+                          
+                        }
+                    </script>
+
+                    
                 </div>
             </div>
         </form>
+        
+            <center><a href="#ankap"><button onclick="submita()" class="knp">зарегистрироваться</button></a></center>
+            <style>
+                    .knp{
+        background: #253f8c;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-family: 'Roboto', sans-serif;
+        font-size: 12px;
+        height: 42px;
+        border-radius: 30px;
+        letter-spacing: 2px;
+        color: #fff;
+        border: none;
+        text-decoration: none;
+        margin-bottom: 30px;
+        }
+                </style>
+        
     </div>
 </div>
-
+<% } %>
 <div class="overlay overlay_primary">
     <div class="overlay__container container">
         <div class="overlay__icon">

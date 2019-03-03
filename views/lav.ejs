@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://lenta.cf-promo.ru/ -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <link href="./registration_files/bootstrap.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./registration_files/css" rel="stylesheet">
+    <link href="./registration_files/site.css" rel="stylesheet">
+    <title>Окей Очки Cafa France</title>
+    <link rel="shortcut icon" href="https://static.tildacdn.com/tild6130-3135-4861-b637-613661626138/cf_favicon.ico" type="image/x-icon">
+    <script src="./registration_files/jquery-2.2.4.min.js.Без названия" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            $(document).on('change', ':file', function() {
+                var input = $(this),
+                        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                input.trigger('fileselect', [numFiles, label]);
+            });
+            $(':file').on('fileselect', function(event, numFiles, label) {
+                var input = $(this).parents('.input-group').find(':text'),
+                        log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+                if( input.length ) {
+                    input.val(log);
+                }
+            });
+        })
+    </script>
+    <style>
+     
+    </style>
+</head>
+<body >
+    <div id="sid">
+    <center>
+        <img src="registration_files/tochni.png" style="margin-top:10%;">
+        <h1>На вашу электронную почту отправлено письмо
+                <br>c подтверждением регистрации</h1>
+                <p>Если в течение 10 минут письмо не пришло, пожалуйста, проверьте папку "Cпам"</p>
+    </center>
+    </div>
+    <style>
+        #sid{
+            width: 100%;
+            height: 100%;
+            background-image: url("registration_files/sbg.png");
+            position: absolute;
+		    z-index: 999999999;
+        }
+    </style>
+    </body>
+    </html>
