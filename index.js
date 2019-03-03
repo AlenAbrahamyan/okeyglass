@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 });
 
 //Create Captcha 
-setInterval(function(){ captchas = svgCaptcha.create(); }, 1000);
+setInterval(function(){ captchas = svgCaptcha.create(); }, 5000);
 app.get('/captchas', function (req, res) {
   res.type('svg');
   res.status(200).send(captchas.data);
