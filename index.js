@@ -60,7 +60,7 @@ app.post('/registration', upload.single('file'), (req, res) => {
         from: 'gevtest98@gmail.com',
         to: 'alen.abrahamyan7@tumo.org',
         subject: 'Новые' + tiv,
-        html: '<h1>Новые заказы</h1><p>' + req.body.firstName + '</p><p>' + req.body.lastName + '</p><p>' + req.body.middleName + '</p><p>' + req.body.mail + '</p><p>' + req.body.phone + '</p><p>' + req.body.city + '</p><p>' + req.body.where + '</p><p>' + req.body.article + '</p><p>' + req.body.numberCheck + '</p><img src="./photo/'+req.file.filename+'">'
+        html: '<h1>Новые заказы</h1><p>' + req.body.firstName + '</p><p>' + req.body.lastName + '</p><p>' + req.body.middleName + '</p><p>' + req.body.mail + '</p><p>' + req.body.phone + '</p><p>' + req.body.city + '</p><p>' + req.body.where + '</p><p>' + req.body.article + '</p><p>' + req.body.numberCheck + '</p><img src="'+url_web+'/photo/'+req.file.filename+'">'
       };
       
       transporter.sendMail(mailOptions, function(error, info){
