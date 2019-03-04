@@ -1,3 +1,6 @@
+const url_web = "okeyglass.herokuapp.com";
+//////////////// URL of your web site /////////////////
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
@@ -7,7 +10,6 @@ const path = require('path');
 const svgCaptcha = require('svg-captcha');
 const app = express();
 const upload = multer({dest: './photo'});
-const url_web = "okeyglass.herokuapp.com";
 var tiv = 0;
 
 app.use(bodyParser.json());
@@ -60,9 +62,9 @@ app.post('/registration', upload.single('file'), (req, res) => {
     
     var mailOptions = {
         from: 'gevtest98@gmail.com',
-        to: 'alen.abrahamyan7@tumo.org',
-        subject: 'Новые' + tiv,
-        html: '<h1>Новые</h1><p>' + req.body.firstName + '</p><p>' + req.body.lastName + '</p><p>' + req.body.middleName + '</p><p>' + req.body.mail + '</p><p>' + req.body.phone + '</p><p>' + req.body.city + '</p><p>' + req.body.where + '</p><p>' + req.body.article + '</p><p>' + req.body.numberCheck + '</p><img src="'+url_web+'/photo/'+req.file.filename+'">'
+        to: 'zarya@tdsoyuz.ru',
+        subject: 'Новые Регистрация ' + tiv,
+        html: '<h1>Новые Регистрация</h1><p>' + req.body.firstName + '</p><p>' + req.body.lastName + '</p><p>' + req.body.middleName + '</p><p>' + req.body.mail + '</p><p>' + req.body.phone + '</p><p>' + req.body.city + '</p><p>' + req.body.where + '</p><p>' + req.body.article + '</p><p>' + req.body.numberCheck + '</p><img src="'+url_web+'/photo/'+req.file.filename+'">'
       };
       
       transporter.sendMail(mailOptions, function(error, info){
