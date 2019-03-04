@@ -7,7 +7,7 @@ const path = require('path');
 const svgCaptcha = require('svg-captcha');
 const app = express();
 const upload = multer({dest: './photo'});
-const url_web = "keyglass.herokuapp.com";
+const url_web = "okeyglass.herokuapp.com";
 var tiv = 0;
 
 app.use(bodyParser.json());
