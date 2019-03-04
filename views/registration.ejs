@@ -194,7 +194,7 @@
                 <div class="row">
 					<div class="col-md-4">
 						<div class="input-group" style="margin-top:10px;">
-							<label><input style="height:12px; margin-right:10px;" name="term" type="checkbox"> <a data-toggle="modal" data-target="#myModal" style="color:#fff" href="http://lenta.cf-promo.ru/">Согласен с условиями</a></label>				
+							<label><input style="height:12px; margin-right:10px;" name="term" type="checkbox"> <a data-toggle="modal" data-target="#myModal" style="color:#fff" href="https://drive.google.com/file/d/1mYcHW5Tc0ztHvPMNs9z5CNFO5ELe9wOT/view?fbclid=IwAR3IC70RGC2RBNTuWLfgdOhfLv7h3pG4XB-1bbLTWGw1l6O7Ze5WB92kMVc">Согласен с условиями</a></label>				
 						</div>
                     </div>
                  <!-- gortc    -->
@@ -207,24 +207,32 @@
                             document.getElementById("ankap").style.display = "block";
                             document.getElementById("a2").style.display = "block";
                             p++;
+                          }else{
+                            document.getElementById("a2").style.display = "none";
                           }
 
                           if(document.getElementById("firstName").value==""){
                             document.getElementById("ankap").style.display = "block";
                             document.getElementById("a1").style.display = "block";
                             p++;
+                          }else{
+                            document.getElementById("a1").style.display = "none";
                           }
 
                           if(document.getElementById("middleName").value==""){
                             document.getElementById("ankap").style.display = "block";
                             document.getElementById("a3").style.display = "block";
                             p++;
+                          }else{
+                            document.getElementById("a3").style.display = "none";
                           }
 
                           if(document.getElementById("email").value==""){
                             document.getElementById("ankap").style.display = "block";
                             document.getElementById("a4").style.display = "block";
                             p++;
+                          }else{
+                            document.getElementById("a4").style.display = "none";
                           }
 
                           if(document.getElementById("phone").value==""){
@@ -232,41 +240,56 @@
                             document.getElementById("a5").style.display = "block";
                             p++;
                           }
+                          else{
+                            document.getElementById("a5").style.display = "none";
+                          }
 
                           if(document.getElementById("city").value==""){
                             document.getElementById("ankap").style.display = "block";
                             document.getElementById("a6").style.display = "block";
                             p++;
+                          }else{
+                            document.getElementById("a6").style.display = "none";
                           }
 
                           if(document.getElementById("where").value==""){
                             document.getElementById("ankap").style.display = "block";
                             document.getElementById("a7").style.display = "block";
                             p++;
+                          }else{
+                            document.getElementById("a7").style.display = "none";
                           }
 
                           if(document.getElementById("article").value==""){
                             document.getElementById("ankap").style.display = "block";
                             document.getElementById("a8").style.display = "block";
                             p++;
+                          }else{
+                            document.getElementById("a8").style.display = "none";
                           }
 
                           if(document.getElementById("numberCheck").value==""){
                             document.getElementById("ankap").style.display = "block";
                             document.getElementById("a9").style.display = "block";
                             p++;
+                          }else{
+                            document.getElementById("a9").style.display = "none";
                           }
                           
                           if(document.getElementById("file").value==""){
                             document.getElementById("ankap").style.display = "block";
                             document.getElementById("a10").style.display = "block";
                             p++;
+                          }else{
+                            document.getElementById("a10").style.display = "none";
                           }
 
                           if(x!="<%=ctext%>"){
                             document.getElementById("ankap").style.display = "block";
                             document.getElementById("a11").style.display = "block";
                             p++;
+                          }else{
+                            document.getElementById("a11").style.display = "none";
                           }
 
                           if(p==0){
